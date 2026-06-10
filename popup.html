@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 280px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #0a0b0f;
+        color: #e8eaf0;
+      }
+      .header {
+        padding: 16px 18px;
+        border-bottom: 1px solid #1e2130;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #4f8ef7, #7c3aed);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
+      .title {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .subtitle {
+        font-size: 11px;
+        color: #6b7280;
+        margin-top: 1px;
+      }
+
+      .body {
+        padding: 16px 18px;
+      }
+
+      .tip {
+        background: #13151c;
+        border: 1px solid #1e2130;
+        border-radius: 10px;
+        padding: 14px;
+        margin-bottom: 14px;
+      }
+      .tip-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #4f8ef7;
+        margin-bottom: 8px;
+      }
+      .tip-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: 12px;
+        color: #9ca3af;
+      }
+      .tip-step:last-child {
+        margin-bottom: 0;
+      }
+      .step-num {
+        width: 18px;
+        height: 18px;
+        background: #1e2130;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: #6b7280;
+        flex-shrink: 0;
+      }
+
+      .status-card {
+        background: #13151c;
+        border: 1px solid #1e2130;
+        border-radius: 10px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .dot.ok {
+        background: #22c55e;
+      }
+      .dot.warn {
+        background: #f59e0b;
+        animation: pulse 1s infinite;
+      }
+      .status-text {
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      .footer {
+        padding: 10px 18px;
+        border-top: 1px solid #1e2130;
+        font-size: 10px;
+        color: #374151;
+        text-align: center;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">🎬</div>
+      <div>
+        <div class="title">AI Image Detector</div>
+        <div class="subtitle">Phát hiện ảnh AI · v1.0</div>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="tip">
+        <div class="tip-title">📖 Cách sử dụng</div>
+        <div class="tip-step">
+          <div class="step-num">1</div>
+          <span>Tìm ảnh bất kỳ trên trang web</span>
+        </div>
+        <div class="tip-step">
+          <div class="step-num">2</div>
+          <span>Chuột phải vào ảnh đó</span>
+        </div>
+        <div class="tip-step">
+          <div class="step-num">3</div>
+          <span
+            >Chọn
+            <strong style="color: #e8eaf0">🤖 Phân tích ảnh AI</strong></span
+          >
+        </div>
+        <div class="tip-step">
+          <div class="step-num">4</div>
+          <span>Kết quả hiện ngay góc phải màn hình</span>
+        </div>
+      </div>
+
+      <div class="status-card" id="statusCard">
+        <div class="dot warn" id="statusDot"></div>
+        <span class="status-text" id="statusText">Đang kiểm tra model...</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      EfficientNet-B0 · Chạy 100% local · Không gửi dữ liệu ra ngoài
+    </div>
+
+    <!-- Script tách riêng — không dùng inline -->
+    <script src="popup.js"></script>
+  </body>
+</html>
